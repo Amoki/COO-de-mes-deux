@@ -1,6 +1,9 @@
 package controler;
 
 import model.Coord;
+import tools.Observer;
+import vue.ChessGameCmdLine;
+import vue.ChessGameGUI;
 
 public interface ChessGameControlers {
 
@@ -29,4 +32,5 @@ public interface ChessGameControlers {
 	 */
 	public boolean isPlayerOK(Coord initCoord);
 
+	void addObserver(Observer o);
 }

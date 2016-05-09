@@ -12,10 +12,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Observable;
-import java.util.Observer;
+import java.util.*;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -25,16 +22,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import controler.ChessGameControlers;
-import model.ChessGame;
-import model.Coord;
-import model.Couleur;
+import model.*;
 import tools.ChessImageProvider;
 import model.Couleur;
-import model.Deplacement;
-import model.Messages;
-import model.ResponseChessGame;
-import model.observable.ChessGame;
+
+import tools.Observable;
 import tools.ChessImageProvider;
+import tools.Observer;
 import tools.Utils;
 
 public class ChessGameGUI extends JFrame implements MouseListener, MouseMotionListener, Observer {
@@ -53,10 +47,9 @@ public class ChessGameGUI extends JFrame implements MouseListener, MouseMotionLi
     public ChessGameGUI (String title, ChessGameControlers chessGameControler, Dimension dim) {
 
         this.chessGameControlers = chessGameControler;
-
+        chessGameControler.addObserver(this);
         // Use a Layered Pane for this this application
         this.setTitle (title);
-        this.setResizable (false);
         layeredPane = new JLayeredPane ();
         getContentPane ().add (layeredPane);
         layeredPane.setPreferredSize (dim);
@@ -147,10 +140,10 @@ public class ChessGameGUI extends JFrame implements MouseListener, MouseMotionLi
             parent = Utils.getKeyByValue (mapCoord, coordPieceSelected);
         }
         Coord coordNewBox = this.mapCoord.get (parent);
-
-        this.chessGameControlers.move (coordPieceSelected, coordNewBox);
-
-        chessPiece.setVisible (true);
+        boolean valid = this.chessGameControlers.move (coordPieceSelected, coordNewBox);
+        if(valid) {
+            chessPiece.removeAll();
+        }
         coordPieceSelected = null;
     }
 
@@ -174,51 +167,48 @@ public class ChessGameGUI extends JFrame implements MouseListener, MouseMotionLi
 
     }
 
-    @ Override
-    public void update (Observable o, Object arg) {
-        if (o instanceof ChessGame) {
-            ResponseChessGame args = (ResponseChessGame) arg;
-            JPanel panel = new JPanel ();
-            Couleur couleur = args.sens == -1 ? Couleur.BLANC : Couleur.NOIR;
+    private void redraw(List<PiecesIHM> pieces) {
+        chessBoard.removeAll();
 
-            // MAJ capture
-            JPanel panelCapture = null;
-            if (args.ret == Deplacement.CAPTURE || args.ret == Deplacement.CAPTURE_PROMOTION) {
-                panelCapture = Utils.getKeyByValue (this.mapCoord, new Coord (args.xFinal, args.yFinal));
-            }
-            else if (args.ret == Deplacement.CAPTURE_PASSANT) {
-                panelCapture = Utils.getKeyByValue (this.mapCoord, new Coord (args.xFinal, args.yFinal - args.sens));
-            }
 
-            if (panelCapture != null) {
-                panelCapture.removeAll ();
-                this.repaint ();
-            }
+        for (int i = 0; i < 64; i++) {
+            JPanel square = new JPanel (new BorderLayout ());
+            chessBoard.add (square);
 
-            // MAJ déplacement
-            if (args.ret != Deplacement.IMMOBILE) {
-                panel = Utils.getKeyByValue (this.mapCoord, new Coord (args.xFinal, args.yFinal));
+            int pairLine = (i / 8) % 2;
+            if (pairLine == 0) {
+                square.setBackground (i % 2 == 0 ? Color.white : Color.black);
             }
             else {
-                panel = Utils.getKeyByValue (this.mapCoord, new Coord (args.xInit, args.yInit));
+                square.setBackground (i % 2 == 0 ? Color.black : Color.white);
             }
 
-            // Promotion
-            if (args.ret == Deplacement.CAPTURE_PROMOTION || args.ret == Deplacement.DEPLACEMENT_PROMOTION) {
-                PopupPromotion popup = new PopupPromotion (couleur, this.chessGameControlers);
-                String type = popup.getNewPiece ();
-                if (!type.equals ("")) {
-                    this.chessPiece = new JLabel (new ImageIcon (ChessImageProvider.getImageFile (type, couleur)));
+            DecimalFormat df = new DecimalFormat ("#");
+            df.setRoundingMode (RoundingMode.DOWN);
+            int row = Integer.parseInt (df.format (i / 8));
+            int column = i % 8;
+
+            this.mapCoord.put (square, new Coord (column, row));
+
+            Iterator<PiecesIHM> pieceIter = pieces.iterator();
+            while (pieceIter.hasNext()) {
+                PiecesIHM pieceIhm = pieceIter.next();
+                if (pieceIhm.getY() == row && pieceIhm.getX() == column) {
+                    JLabel piece = new JLabel (new ImageIcon (ChessImageProvider.getImageFile (pieceIhm.getName(), pieceIhm.getCouleur())));
+                    JPanel panel = (JPanel) chessBoard.getComponent (i);
+                    panel.add (piece);
+                    pieces.remove(piece);
+                    break;
                 }
             }
-
-            panel.add (this.chessPiece);
-            this.pack ();
-            this.repaint ();
-            Messages message = this.chessGameControlers.getMessage ();
-            if (message.isToDisplay ()) {
-                JOptionPane.showMessageDialog (this, this.chessGameControlers.getMessage ().toString (), message.getTitre (), message.getTypeMessage ());
-            }
         }
+        this.revalidate();
+        this.repaint();
+    }
+
+    public void update (Object  o) {
+        List<PiecesIHM> pieces = (ArrayList<PiecesIHM>)o;
+
+        this.redraw(pieces);
     }
 }

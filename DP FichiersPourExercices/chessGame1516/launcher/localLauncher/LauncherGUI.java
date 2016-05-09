@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import controler.ChessGameControlers;
 import controler.controlerLocal.ChessGameControler;
 import model.ChessGame;
+import vue.ChessGameGUI;
 
 
 /**

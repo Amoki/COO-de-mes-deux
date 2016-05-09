@@ -15,7 +15,9 @@ public class ChessGame extends Observable {
 
     public boolean move (int xInit, int yInit, int xFinal, int yFinal) {
         Boolean moved = false;
+
         if (this.echiquier.isMoveOk(xInit, yInit, xFinal, yFinal)) {
+
             moved = this.echiquier.move(xInit, yInit, xFinal, yFinal);
             if (moved) {
                 notify(this.echiquier.getPiecesIHM());

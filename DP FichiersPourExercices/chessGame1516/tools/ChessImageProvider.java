@@ -1,12 +1,12 @@
-package myJava.tools;
+package tools;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import myJava.model.Coord;
-import myJava.model.Couleur;
+import model.Coord;
+import model.Couleur;
 import tools.ChessPieceImage;
 import tools.ChessPiecePos;
 
@@ -95,7 +95,7 @@ public class ChessImageProvider {
 		key = pieceType + pieceCouleur.name ();
 		value = mapImage.get (key);
 		File g = new File ("");
-		ret = g.getAbsolutePath () + File.separator + "src" + File.separator +"images" + File.separator + value;
+		ret = g.getAbsolutePath () + File.separator + File.separator +"images" + File.separator + value;
 		return ret;
 	}
 

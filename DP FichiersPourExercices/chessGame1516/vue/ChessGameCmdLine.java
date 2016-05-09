@@ -1,5 +1,6 @@
 package vue;
 
+import controler.ChessGameControlers;
 import model.Coord;
 import controler.controlerLocal.ChessGameControler;
 import model.Pieces;
@@ -19,11 +20,11 @@ import java.util.List;
  * Vue console d'un jeu d'échec
  * Cette classe est un observateur et le damier est mis à jour à chaque changement dans la classe métier
  */
-public class ChessGameCmdLine extends Observer {
+public class ChessGameCmdLine implements Observer {
 
-	ChessGameControler chessGameControler;
+	ChessGameControlers chessGameControler;
 
-	public ChessGameCmdLine(ChessGameControler chessGameControler) {
+	public ChessGameCmdLine(ChessGameControlers chessGameControler) {
 		this.chessGameControler = chessGameControler;
 		this.chessGameControler.addObserver(this);
 	}
