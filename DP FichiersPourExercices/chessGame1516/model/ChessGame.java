@@ -20,10 +20,11 @@ public class ChessGame extends Observable {
 
             moved = this.echiquier.move(xInit, yInit, xFinal, yFinal);
             if (moved) {
-                notify(this.echiquier.getPiecesIHM());
                 this.echiquier.switchJoueur();
             }
         }
+        notify(this.echiquier.getPiecesIHM());
+        System.out.println(this.echiquier.getMessage());
         return moved;
     }
 
