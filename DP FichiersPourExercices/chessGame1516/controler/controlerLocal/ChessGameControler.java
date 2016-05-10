@@ -3,7 +3,10 @@ package controler.controlerLocal;
 import controler.ChessGameControlers;
 import model.ChessGame;
 import model.Coord;
+import model.PiecesIHM;
 import tools.Observer;
+
+import java.util.ArrayList;
 
 public class ChessGameControler implements ChessGameControlers  {
 
@@ -16,6 +19,10 @@ public class ChessGameControler implements ChessGameControlers  {
     @Override
     public boolean move(Coord initCoord, Coord finalCoord) {
         return this.chessGame.move(initCoord.x, initCoord.y, finalCoord.x, finalCoord.y);
+    }
+
+    public ArrayList<Coord> getAvailableMove(Coord pieceToMoveCoord) {
+        return this.chessGame.getAvailableMove(pieceToMoveCoord);
     }
 
     @Override

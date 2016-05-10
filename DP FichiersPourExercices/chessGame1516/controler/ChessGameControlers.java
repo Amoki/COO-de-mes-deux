@@ -1,9 +1,12 @@
 package controler;
 
 import model.Coord;
+import model.PiecesIHM;
 import tools.Observer;
 import vue.ChessGameCmdLine;
 import vue.ChessGameGUI;
+
+import java.util.ArrayList;
 
 public interface ChessGameControlers {
 
@@ -31,6 +34,8 @@ public interface ChessGameControlers {
 	 * pour empêcher tout déplacement sur le damier
 	 */
 	public boolean isPlayerOK(Coord initCoord);
+
+	public ArrayList<Coord> getAvailableMove(Coord pieceToMoveCoord);
 
 	void addObserver(Observer o);
 }

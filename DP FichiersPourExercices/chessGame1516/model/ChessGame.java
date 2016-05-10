@@ -2,6 +2,8 @@ package model;
 
 import tools.Observable;
 
+import java.util.ArrayList;
+
 /**
  * Created by MSIgamer on 29/04/2016.
  */
@@ -42,6 +44,10 @@ public class ChessGame extends Observable {
 
     public Couleur getPieceColor(int x, int y){
         return echiquier.getPieceColor(x, y);
+    }
+
+    public ArrayList<Coord> getAvailableMove(Coord pieceToMoveCoord) {
+        return echiquier.getAvailableMove(pieceToMoveCoord);
     }
 
 

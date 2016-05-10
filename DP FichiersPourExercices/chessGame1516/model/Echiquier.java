@@ -108,6 +108,18 @@ public class Echiquier implements BoardGames {
 		return this.isMoveOk;
 	}
 
+	public ArrayList<Coord> getAvailableMove(Coord pieceToMoveCoord) {
+		ArrayList<Coord> listCoord = new ArrayList<Coord>();
+		for(int i = 0; i < 8; i++) {
+			for(int j = 0; j < 8; j++) {
+				if (isMoveOk(pieceToMoveCoord.x, pieceToMoveCoord.y, i, j)) {
+					listCoord.add(new Coord(i, j));
+				}
+			}
+		}
+		return listCoord;
+	}
+
 	private boolean isMoveLegal(int xInit, int yInit, int xFinal, int yFinal) {
 
 		boolean isPieceOnPath = false;

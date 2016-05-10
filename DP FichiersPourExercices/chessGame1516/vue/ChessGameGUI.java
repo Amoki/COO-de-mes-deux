@@ -110,6 +110,8 @@ public class ChessGameGUI extends JFrame implements MouseListener, MouseMotionLi
         chessPiece.setLocation (e.getX () + xAdjustment, e.getY () + yAdjustment);
         chessPiece.setSize (chessPiece.getWidth (), chessPiece.getHeight ());
         layeredPane.add (chessPiece, JLayeredPane.DRAG_LAYER);
+        drawValidCoord(coordPieceSelected);
+
     }
 
     @ Override
@@ -206,6 +208,21 @@ public class ChessGameGUI extends JFrame implements MouseListener, MouseMotionLi
         this.revalidate();
         this.repaint();
     }
+
+    public void drawValidCoord (Coord pieceSelectedCoord) {
+        if(pieceSelectedCoord != null) {
+            ArrayList<Coord> coords = chessGameControlers.getAvailableMove(pieceSelectedCoord);
+
+            for(Map.Entry<JPanel, Coord> square : mapCoord.entrySet()) {
+                if (coords.contains(square.getValue())) {
+                    square.getKey().setBackground(Color.decode("0x1283c5"));
+                }
+            }
+        }
+        this.revalidate();
+        this.repaint();
+    }
+
 
     public void update (Object  o) {
         List<PiecesIHM> pieces = (ArrayList<PiecesIHM>)o;
