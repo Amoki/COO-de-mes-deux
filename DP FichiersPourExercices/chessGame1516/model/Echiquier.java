@@ -26,7 +26,7 @@ public class Echiquier implements BoardGames {
 	private Jeu jeuNoir;
 	private Jeu jeuCourant, jeuOppose;
 	private String message;
-	 
+
 	private boolean isMoveOk ;
 	private boolean isCatchOk;
 	private boolean isPieceToMoveOk;
@@ -46,6 +46,11 @@ public class Echiquier implements BoardGames {
 		this.isMoveOk = false;
 		this.isPieceToMoveOk = false;
 		this.isCastlingPossible = false;
+	}
+
+	public void setGameMode(String gameMode){
+		this.jeuBlanc.setGameMode(gameMode);
+		this.jeuNoir.setGameMode(gameMode);
 	}
 
 

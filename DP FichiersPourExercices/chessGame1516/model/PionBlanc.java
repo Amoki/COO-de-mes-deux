@@ -1,25 +1,15 @@
 package model;
 
+import model.MovePieceStrategy.MovePieceStrategy;
+
 /**
  * Created by LEBRUN_NICOLAS on 29/04/16.
  */
-public class PionBlanc extends Pion {
+public class PionBlanc extends AbstractPiece {
 
-    public PionBlanc(Couleur couleur, Coord coord) { //TODO Voir pour enlever le paramètre couleur inutile (cf ChessPiecesFactory)
-        super(Couleur.BLANC, coord);
-    }
+    public PionBlanc(Couleur couleur, Coord coord, String factory) { //TODO Voir pour enlever le paramètre couleur inutile (cf ChessPiecesFactory)
 
-    public boolean isMoveVerticalOk(int yFinal) {
-        return (yFinal - this.getY()) < 0;
-    }
-
-    public boolean isMoveDiagonalOk(int xFinal, int yFinal) {
-        Boolean ret = false;
-        if ((yFinal == this.getY()-1 && xFinal == this.getX()+1)
-                || (yFinal == this.getY()-1 && xFinal == this.getX()-1)) {
-            ret = true;
-        }
-        return ret;
+        super(Couleur.BLANC, coord, factory);
     }
 
 

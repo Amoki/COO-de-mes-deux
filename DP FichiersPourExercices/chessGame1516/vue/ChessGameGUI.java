@@ -143,10 +143,7 @@ public class ChessGameGUI extends JFrame implements MouseListener, MouseMotionLi
         }
         Coord coordNewBox = this.mapCoord.get (parent);
         boolean valid = this.chessGameControlers.move (coordPieceSelected, coordNewBox);
-        if (valid) {
-            chessPiece.removeAll();
-        } else {
-        }
+
         coordPieceSelected = null;
     }
 

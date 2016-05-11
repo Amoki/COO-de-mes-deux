@@ -1,6 +1,9 @@
 package model;
 
 
+import model.MovePieceStrategy.MovePieceStrategy;
+import tools.AbstractBehaviourFactory;
+import tools.Introspection;
 
 /**
  * @author francoise.perrin
@@ -13,17 +16,26 @@ public abstract class AbstractPiece implements Pieces {
 
 	private int x, y;
 	private Couleur couleur;
-	
+	private boolean premierCoup;
+	private MovePieceStrategy behavior;
+	private AbstractBehaviourFactory behaviourFactory;
+
 
 	/**
-	 * @param name
 	 * @param couleur
 	 * @param coord
 	 */
-	public AbstractPiece(Couleur couleur, Coord coord){
+	public AbstractPiece(Couleur couleur, Coord coord, String factory){
 		this.x = coord.x;
 		this.y = coord.y;
 		this.couleur=couleur;
+		this.premierCoup = true;
+		try {
+			this.behaviourFactory = ((AbstractBehaviourFactory) Introspection.invokeStatic("tools."+factory, null, "getInstance"));
+			this.setBehaviour();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/* (non-Javadoc)
@@ -68,12 +80,14 @@ public abstract class AbstractPiece implements Pieces {
 		if(Coord.coordonnees_valides(x,y)){
 			this.x=x;
 			this.y=y;
+			if (this.premierCoup) {
+				this.premierCoup = false;
+			}
 			ret = true;
 		}
 		return ret;
-
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see model.Pieces#capture()
 	 * 
@@ -104,8 +118,19 @@ public abstract class AbstractPiece implements Pieces {
 	 * En fonction du type de pièce (Pion, etc.)
 	 * est capable de dire si le déplacement est OK
 	 */
-	public abstract boolean isMoveOk(int xFinal, int yFinal, boolean isCatchOk,
-			boolean isCastlingPossible) ;
+	public boolean isMoveOk(int xFinal, int yFinal, boolean isCatchOk,
+			boolean isCastlingPossible, boolean premierCoup) {
+		this.setBehaviour();
+		return this.behavior.isMoveOk(this.getX(), this.getY(), xFinal, yFinal, isCatchOk, isCastlingPossible, premierCoup);
+	}
+
+	public boolean getPremierCoup() {
+		return this.premierCoup;
+	}
+
+	private void setBehaviour(){
+		this.behavior = this.behaviourFactory.getBehaviour(this.x, this.y, this.getName());
+	}
 
 }
 

@@ -44,9 +44,12 @@ public class Jeu implements Game {
 	 * 
 	 */
 	public Jeu(Couleur couleur){
-		this.pieces = ChessPiecesFactory.newPieces(couleur);
 		this.couleur = couleur;
 		isPieceToCatch = isMoveOk = false;
+	}
+
+	public void setGameMode(String gameMode) {
+		this.pieces = ChessPiecesFactory.newPieces(couleur, gameMode);
 	}
 
 
@@ -83,7 +86,7 @@ public class Jeu implements Game {
 		pieceToMove = this.findPiece(xInit, yInit);
 
 		// verif déplacement autorisé 
-		if (pieceToMove != null && pieceToMove.isMoveOk(xFinal, yFinal, isCatchOk, isCastlingPossible)) {
+		if (pieceToMove != null && pieceToMove.isMoveOk(xFinal, yFinal, isCatchOk, isCastlingPossible, pieceToMove.getPremierCoup())) {
 			isMoveOk = true;
 		}
 

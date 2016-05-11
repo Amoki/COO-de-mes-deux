@@ -37,7 +37,7 @@ public interface Pieces {
 	 * @return true si déplacement légal en fonction des algo
 	 * de déplacement spécifique de chaque pièce
 	 */
-	public  boolean isMoveOk(int xFinal, int yFinal, boolean isCatchOk, boolean isCastlingPossible) ;
+	public  boolean isMoveOk(int xFinal, int yFinal, boolean isCatchOk, boolean isCastlingPossible, boolean premierCoup) ;
 	
 	/**
 	 * @param xFinal
@@ -51,5 +51,11 @@ public interface Pieces {
 	 * Positionne x et y à -1
 	 */
 	public boolean capture();
+
+
+	/**
+	 * @return true si premier déplacement de la pièce
+	 */
+	public boolean getPremierCoup();
 };
 

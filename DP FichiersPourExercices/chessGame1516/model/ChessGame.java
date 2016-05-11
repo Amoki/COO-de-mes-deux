@@ -15,6 +15,10 @@ public class ChessGame extends Observable {
         this.echiquier = new Echiquier();
     }
 
+    public void setGameMode(String gameMode) {
+        this.echiquier.setGameMode(gameMode);
+    }
+
     public boolean move (int xInit, int yInit, int xFinal, int yFinal) {
         Boolean moved = false;
 
