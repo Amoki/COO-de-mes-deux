@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="21.25" y="260.0">model.AbstractPiece</node>
+    <node x="507.25" y="260.0">model.Game</node>
+    <node x="1032.577566354411" y="470.0">tools.Observable</node>
+    <node x="1501.2085187353634" y="470.0">tools.NomCouleurPiece</node>
+    <node x="916.1458821233414" y="360.0">model.BoardGames</node>
+    <node x="777.25" y="260.0">tools.ChessPiecesFactory</node>
+    <node x="1264.141120218579" y="680.0">vue.ChessGameCmdLine</node>
+    <node x="1492.3208333333334" y="560.0">tools.Utils</node>
+    <node x="241.87907884465244" y="0.0">model.MovePieceStrategy.MovePieceStrategy</node>
+    <node x="1098.141120218579" y="680.0">controler.controlerLocal.ChessGameControler</node>
+    <node x="10.5" y="90.0">tools.AbstractBehaviourFactory</node>
+    <node x="1173.4594359875096" y="360.0">tools.Observer</node>
+    <node x="1073.516120218579" y="260.0">model.PiecesIHM</node>
+    <node x="1159.4108996877444" y="830.0">launcher.localLauncher.LauncherGUI</node>
+    <node x="1852.0522687353634" y="260.0">model.MovePieceStrategy.PionNoirBehavior</node>
+    <node x="910.6400663544109" y="560.0">model.ChessGame</node>
+    <node x="1652.2085187353634" y="470.0">tools.ChessPieceImage</node>
+    <node x="922.7540788446524" y="90.0">model.Pieces</node>
+    <node x="519.215066354411" y="90.0">tools.Introspection</node>
+    <node x="1270.1339285714284" y="560.0">controler.ChessGameControlers</node>
+    <node x="845.1458821233414" y="360.0">model.Jeu</node>
+    <node x="592.25" y="260.0">tools.ChessSinglePieceFactory</node>
+    <node x="1910.8161202185793" y="90.0">model.MovePieceStrategy.PionBehavior</node>
+    <node x="147.25" y="260.0">tools.ClassicBehaviourFactory</node>
+    <node x="48.75" y="360.0">model.Roi</node>
+    <node x="1008.4108996877443" y="830.0">launcher.localLauncher.LauncherCmdLine</node>
+    <node x="1569.3208333333332" y="560.0">tools.ChessImageProvider</node>
+    <node x="1448.4327868852458" y="680.0">vue.ChessGameGUI</node>
+    <node x="1757.5522687353634" y="90.0">tools.ChessPiecePos</node>
+    <node x="1999.0522687353634" y="260.0">model.MovePieceStrategy.PionBlancBehavior</node>
+    <node x="329.25" y="260.0">tools.StormBehaviourFactory</node>
+    <node x="896.3900663544109" y="470.0">model.Echiquier</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="launcher.localLauncher.LauncherGUI" target="model.ChessGame">
+      <point x="-20.399999999999977" y="-15.0" />
+      <point x="1190.0108996877443" y="730.0" />
+      <point x="959.1400663544109" y="730.0" />
+      <point x="959.1400663544109" y="660.0" />
+      <point x="966.6400663544109" y="660.0" />
+      <point x="8.0" y="15.0" />
+    </edge>
+    <edge source="model.Jeu" target="tools.ChessPiecesFactory">
+      <point x="-7.285714285714278" y="-15.0" />
+      <point x="863.3601678376272" y="320.0" />
+      <point x="845.75" y="320.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="launcher.localLauncher.LauncherCmdLine" target="model.ChessGame">
+      <point x="-37.4285714285714" y="-15.0" />
+      <point x="1036.4823282591728" y="800.0" />
+      <point x="937.1400663544109" y="800.0" />
+      <point x="937.1400663544109" y="660.0" />
+      <point x="934.6400663544109" y="660.0" />
+      <point x="-24.0" y="15.0" />
+    </edge>
+    <edge source="vue.ChessGameCmdLine" target="model.PiecesIHM">
+      <point x="54.0" y="-15.0" />
+      <point x="1390.141120218579" y="660.0" />
+      <point x="1463.0208333333335" y="660.0" />
+      <point x="1463.0208333333335" y="340.0" />
+      <point x="1136.516120218579" y="340.0" />
+      <point x="18.0" y="15.0" />
+    </edge>
+    <edge source="tools.Observable" target="tools.Observer">
+      <point x="-23.25" y="-15.0" />
+      <point x="1055.827566354411" y="430.0" />
+      <point x="1180.2094359875096" y="430.0" />
+      <point x="-33.75" y="15.0" />
+    </edge>
+    <edge source="tools.ClassicBehaviourFactory" target="tools.Introspection">
+      <point x="54.0" y="-15.0" />
+      <point x="282.25" y="170.0" />
+      <point x="550.415066354411" y="170.0" />
+      <point x="-20.799999999999955" y="15.0" />
+    </edge>
+    <edge source="controler.controlerLocal.ChessGameControler" target="controler.ChessGameControlers">
+      <point x="54.75" y="-15.0" />
+      <point x="1225.891120218579" y="660.0" />
+      <point x="1280.919642857143" y="660.0" />
+      <point x="-64.71428571428572" y="15.0" />
+    </edge>
+    <edge source="vue.ChessGameGUI" target="tools.Observer">
+      <point x="-9.583333333333314" y="-15.0" />
+      <point x="1496.3494535519126" y="610.0" />
+      <point x="1452.0208333333335" y="610.0" />
+      <point x="1452.0208333333335" y="440.0" />
+      <point x="1247.7094359875096" y="440.0" />
+      <point x="33.75" y="15.0" />
+    </edge>
+    <edge source="tools.ChessImageProvider" target="tools.ChessPiecePos">
+      <point x="56.80000000000001" y="-15.0" />
+      <point x="1697.1208333333334" y="540.0" />
+      <point x="1841.5522687353634" y="540.0" />
+      <point x="28.0" y="15.0" />
+    </edge>
+    <edge source="launcher.localLauncher.LauncherGUI" target="vue.ChessGameGUI">
+      <point x="40.799999999999955" y="-15.0" />
+      <point x="1251.2108996877441" y="810.0" />
+      <point x="1505.9327868852458" y="810.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="tools.ChessPiecesFactory" target="tools.ChessPiecePos">
+      <point x="45.666666666666686" y="-15.0" />
+      <point x="891.4166666666667" y="240.0" />
+      <point x="1785.5522687353634" y="240.0" />
+      <point x="-28.0" y="15.0" />
+    </edge>
+    <edge source="model.AbstractPiece" target="tools.AbstractBehaviourFactory">
+      <point x="0.0" y="-15.0" />
+      <point x="-21.25" y="15.0" />
+    </edge>
+    <edge source="controler.ChessGameControlers" target="tools.Observer">
+      <point x="0.0" y="-15.0" />
+      <point x="1345.6339285714284" y="450.0" />
+      <point x="1234.2094359875096" y="450.0" />
+      <point x="20.25" y="15.0" />
+    </edge>
+    <edge source="vue.ChessGameGUI" target="tools.Utils">
+      <point x="9.583333333333314" y="-15.0" />
+      <point x="1515.516120218579" y="660.0" />
+      <point x="1520.8208333333334" y="660.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="model.AbstractPiece" target="tools.Introspection">
+      <point x="21.19999999999999" y="-15.0" />
+      <point x="95.45000000000005" y="160.0" />
+      <point x="529.6150663544109" y="160.0" />
+      <point x="-41.60000000000002" y="15.0" />
+    </edge>
+    <edge source="tools.AbstractBehaviourFactory" target="model.MovePieceStrategy.MovePieceStrategy">
+      <point x="0.0" y="-15.0" />
+      <point x="95.5" y="60.0" />
+      <point x="282.37907884465244" y="60.0" />
+      <point x="-27.0" y="15.0" />
+    </edge>
+    <edge source="model.Jeu" target="model.Pieces">
+      <point x="7.285714285714334" y="-15.0" />
+      <point x="877.9315964090558" y="320.0" />
+      <point x="1015.9089773614363" y="320.0" />
+      <point x="1015.9089773614363" y="230.0" />
+      <point x="968.8165788446524" y="230.0" />
+      <point x="12.5625" y="15.0" />
+    </edge>
+    <edge source="model.Roi" target="model.AbstractPiece">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="model.MovePieceStrategy.PionNoirBehavior" target="model.MovePieceStrategy.PionBehavior">
+      <point x="0.0" y="-15.0" />
+      <point x="1915.5522687353634" y="240.0" />
+      <point x="1936.8161202185793" y="240.0" />
+      <point x="-26.0" y="15.0" />
+    </edge>
+    <edge source="vue.ChessGameGUI" target="controler.ChessGameControlers">
+      <point x="-47.916666666666686" y="-15.0" />
+      <point x="1458.016120218579" y="630.0" />
+      <point x="1388.7767857142858" y="630.0" />
+      <point x="43.142857142857125" y="15.0" />
+    </edge>
+    <edge source="model.Jeu" target="model.Game">
+      <point x="-21.85714285714289" y="-15.0" />
+      <point x="848.7887392661985" y="340.0" />
+      <point x="539.75" y="340.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="tools.ClassicBehaviourFactory" target="model.MovePieceStrategy.MovePieceStrategy">
+      <point x="0.0" y="-15.0" />
+      <point x="228.25" y="70.0" />
+      <point x="309.37907884465244" y="70.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="launcher.localLauncher.LauncherGUI" target="controler.controlerLocal.ChessGameControler">
+      <point x="0.0" y="-15.0" />
+      <point x="1210.4108996877444" y="760.0" />
+      <point x="1219.8077868852458" y="760.0" />
+      <point x="48.66666666666666" y="15.0" />
+    </edge>
+    <edge source="model.MovePieceStrategy.PionBehavior" target="model.MovePieceStrategy.MovePieceStrategy">
+      <point x="0.0" y="-15.0" />
+      <point x="1962.8161202185793" y="60.0" />
+      <point x="363.37907884465244" y="60.0" />
+      <point x="54.0" y="15.0" />
+    </edge>
+    <edge source="launcher.localLauncher.LauncherCmdLine" target="vue.ChessGameCmdLine">
+      <point x="37.42857142857143" y="-15.0" />
+      <point x="1111.3394711163157" y="780.0" />
+      <point x="1372.141120218579" y="780.0" />
+      <point x="36.0" y="15.0" />
+    </edge>
+    <edge source="model.AbstractPiece" target="model.MovePieceStrategy.MovePieceStrategy">
+      <point x="-42.40000000000009" y="-15.0" />
+      <point x="31.84999999999991" y="240.0" />
+      <point x="0.0" y="240.0" />
+      <point x="0.0" y="50.0" />
+      <point x="255.37907884465244" y="50.0" />
+      <point x="-54.0" y="15.0" />
+    </edge>
+    <edge source="model.ChessGame" target="tools.Observable">
+      <point x="32.0" y="-15.0" />
+      <point x="990.6400663544109" y="540.0" />
+      <point x="1079.077566354411" y="540.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="vue.ChessGameGUI" target="model.PiecesIHM">
+      <point x="47.916666666666686" y="-15.0" />
+      <point x="1553.8494535519126" y="660.0" />
+      <point x="1788.7085187353634" y="660.0" />
+      <point x="1788.7085187353634" y="330.0" />
+      <point x="1154.516120218579" y="330.0" />
+      <point x="36.0" y="15.0" />
+    </edge>
+    <edge source="vue.ChessGameCmdLine" target="tools.Observer">
+      <point x="-54.0" y="-15.0" />
+      <point x="1282.141120218579" y="650.0" />
+      <point x="1226.9851678376272" y="650.0" />
+      <point x="1226.9851678376272" y="450.0" />
+      <point x="1220.7094359875096" y="450.0" />
+      <point x="6.75" y="15.0" />
+    </edge>
+    <edge source="launcher.localLauncher.LauncherCmdLine" target="controler.controlerLocal.ChessGameControler">
+      <point x="1.4210854715202004E-14" y="-15.0" />
+      <point x="1073.9108996877444" y="760.0" />
+      <point x="1171.141120218579" y="760.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="tools.ChessPiecesFactory" target="tools.Introspection">
+      <point x="-45.66666666666663" y="-15.0" />
+      <point x="800.0833333333334" y="170.0" />
+      <point x="612.815066354411" y="170.0" />
+      <point x="41.60000000000002" y="15.0" />
+    </edge>
+    <edge source="tools.ChessSinglePieceFactory" target="tools.Introspection">
+      <point x="-41.0" y="-15.0" />
+      <point x="633.25" y="180.0" />
+      <point x="592.0150663544109" y="180.0" />
+      <point x="20.799999999999955" y="15.0" />
+    </edge>
+    <edge source="model.PiecesIHM" target="model.Pieces">
+      <point x="22.5" y="-15.0" />
+      <point x="1141.016120218579" y="210.0" />
+      <point x="985.5665788446524" y="210.0" />
+      <point x="29.3125" y="15.0" />
+    </edge>
+    <edge source="model.AbstractPiece" target="model.Pieces">
+      <point x="42.39999999999998" y="-15.0" />
+      <point x="116.64999999999986" y="190.0" />
+      <point x="926.9415788446524" y="190.0" />
+      <point x="-29.3125" y="15.0" />
+    </edge>
+    <edge source="tools.StormBehaviourFactory" target="tools.Introspection">
+      <point x="52.66666666666666" y="-15.0" />
+      <point x="460.91666666666663" y="180.0" />
+      <point x="571.215066354411" y="180.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="controler.controlerLocal.ChessGameControler" target="tools.Observer">
+      <point x="18.25" y="-15.0" />
+      <point x="1189.391120218579" y="450.0" />
+      <point x="1207.2094359875096" y="450.0" />
+      <point x="-6.75" y="15.0" />
+    </edge>
+    <edge source="tools.ChessPiecesFactory" target="model.Pieces">
+      <point x="0.0" y="-15.0" />
+      <point x="845.75" y="220.0" />
+      <point x="952.0665788446524" y="220.0" />
+      <point x="-4.1875" y="15.0" />
+    </edge>
+    <edge source="model.Jeu" target="model.PiecesIHM">
+      <point x="21.85714285714289" y="-15.0" />
+      <point x="892.5030249804843" y="340.0" />
+      <point x="1100.516120218579" y="340.0" />
+      <point x="-18.0" y="15.0" />
+    </edge>
+    <edge source="controler.controlerLocal.ChessGameControler" target="model.ChessGame">
+      <point x="-54.75" y="-15.0" />
+      <point x="1116.391120218579" y="660.0" />
+      <point x="982.6400663544109" y="660.0" />
+      <point x="24.0" y="15.0" />
+    </edge>
+    <edge source="model.MovePieceStrategy.PionBlancBehavior" target="model.MovePieceStrategy.PionBehavior">
+      <point x="0.0" y="-15.0" />
+      <point x="2065.552268735363" y="240.0" />
+      <point x="1988.8161202185793" y="240.0" />
+      <point x="26.0" y="15.0" />
+    </edge>
+    <edge source="launcher.localLauncher.LauncherGUI" target="controler.ChessGameControlers">
+      <point x="20.399999999999977" y="-15.0" />
+      <point x="1230.8108996877443" y="800.0" />
+      <point x="1429.641120218579" y="800.0" />
+      <point x="1429.641120218579" y="640.0" />
+      <point x="1367.205357142857" y="640.0" />
+      <point x="21.571428571428555" y="15.0" />
+    </edge>
+    <edge source="tools.ChessImageProvider" target="tools.NomCouleurPiece">
+      <point x="-28.400000000000006" y="-15.0" />
+      <point x="1611.9208333333331" y="530.0" />
+      <point x="1566.7085187353634" y="530.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="launcher.localLauncher.LauncherCmdLine" target="controler.ChessGameControlers">
+      <point x="56.14285714285714" y="-15.0" />
+      <point x="1130.0537568306015" y="790.0" />
+      <point x="1418.641120218579" y="790.0" />
+      <point x="1418.641120218579" y="650.0" />
+      <point x="1345.6339285714284" y="650.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="tools.ClassicBehaviourFactory" target="tools.AbstractBehaviourFactory">
+      <point x="-54.0" y="-15.0" />
+      <point x="174.25" y="150.0" />
+      <point x="116.75" y="150.0" />
+      <point x="21.25" y="15.0" />
+    </edge>
+    <edge source="model.ChessGame" target="model.Echiquier">
+      <point x="-32.0" y="-15.0" />
+      <point x="926.6400663544109" y="540.0" />
+      <point x="917.1400663544109" y="540.0" />
+      <point x="-20.75" y="15.0" />
+    </edge>
+    <edge source="tools.StormBehaviourFactory" target="model.MovePieceStrategy.MovePieceStrategy">
+      <point x="0.0" y="-15.0" />
+      <point x="408.25" y="150.0" />
+      <point x="403.33333333333337" y="150.0" />
+      <point x="403.33333333333337" y="70.0" />
+      <point x="336.37907884465244" y="70.0" />
+      <point x="27.0" y="15.0" />
+    </edge>
+    <edge source="model.Echiquier" target="model.Jeu">
+      <point x="-10.375" y="-15.0" />
+      <point x="927.5150663544109" y="440.0" />
+      <point x="883.3958821233414" y="440.0" />
+      <point x="12.75" y="15.0" />
+    </edge>
+    <edge source="tools.ChessSinglePieceFactory" target="model.Pieces">
+      <point x="41.0" y="-15.0" />
+      <point x="715.25" y="200.0" />
+      <point x="935.3165788446524" y="200.0" />
+      <point x="-20.9375" y="15.0" />
+    </edge>
+    <edge source="vue.ChessGameGUI" target="tools.ChessImageProvider">
+      <point x="28.75" y="-15.0" />
+      <point x="1534.6827868852458" y="650.0" />
+      <point x="1640.3208333333332" y="650.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="tools.StormBehaviourFactory" target="tools.AbstractBehaviourFactory">
+      <point x="-52.66666666666666" y="-15.0" />
+      <point x="355.58333333333337" y="140.0" />
+      <point x="159.25" y="140.0" />
+      <point x="63.75" y="15.0" />
+    </edge>
+    <edge source="model.Echiquier" target="model.PiecesIHM">
+      <point x="31.125" y="-15.0" />
+      <point x="969.0150663544109" y="420.0" />
+      <point x="1118.516120218579" y="420.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="model.Echiquier" target="model.BoardGames">
+      <point x="10.375" y="-15.0" />
+      <point x="948.2650663544109" y="410.0" />
+      <point x="966.6458821233414" y="410.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+    <edge source="vue.ChessGameCmdLine" target="controler.ChessGameControlers">
+      <point x="-18.0" y="-15.0" />
+      <point x="1318.141120218579" y="660.0" />
+      <point x="1302.4910714285713" y="660.0" />
+      <point x="-43.14285714285715" y="15.0" />
+    </edge>
+    <edge source="tools.ChessImageProvider" target="tools.ChessPieceImage">
+      <point x="28.399999999999977" y="-15.0" />
+      <point x="1668.7208333333333" y="530.0" />
+      <point x="1715.2085187353634" y="530.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6692986530422667" x="1066.5" y="430.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
