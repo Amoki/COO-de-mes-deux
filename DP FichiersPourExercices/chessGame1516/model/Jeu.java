@@ -114,7 +114,9 @@ public class Jeu implements Game {
 			pieceToMoveUndo = pieceToMove;
 			xInitUndo = xInit;
 			yInitUndo = yInit;
-			
+			xFinalUndo = xFinal;
+			yFinalUndo = yFinal;
+
 			// Pour anticiper la promotion du pion
 			isLastPion = false;			
 			if(pieceToMove.getName().startsWith("Pion") ) {
@@ -156,7 +158,7 @@ public class Jeu implements Game {
 		yFinalUndo = pieceToCatch.getY();
 		
 		ret = pieceToCatch.capture();
-		isPieceToCatch = false;	
+		isPieceToCatch = true;
 
 		return ret;
 	}
@@ -253,7 +255,23 @@ public class Jeu implements Game {
 
 		return piecesIHM;
 	}
-	
+
+	public void undo() {
+		pieceToMoveUndo.move(xInitUndo, yInitUndo);
+		if(isPieceToCatch) {
+			isPieceToCatch = false;
+			pieceToCatchUndo.move(xFinalUndo, yFinalUndo);
+		}
+	}
+
+	public void redon() {
+		if(isPieceToCatch) {
+			pieceToCatchUndo.capture();
+		}
+		pieceToMoveUndo.move(xFinalUndo, yFinalUndo);
+	}
+
+
 
 //		public static void main(String[] args) {
 //			Jeu jeu = new Jeu(Couleur.BLANC);

@@ -1,6 +1,7 @@
 package model;
 
 import tools.Observable;
+import tools.UndoRedo;
 
 import java.util.ArrayList;
 
@@ -60,4 +61,13 @@ public class ChessGame extends Observable {
         return echiquier.toString() + "\n" + getMessage();
     }
 
+    public void undo() {
+        this.echiquier.undo();
+        notify(this.echiquier.getPiecesIHM());
+    }
+
+    public void redon() {
+        this.echiquier.redon();
+        notify(this.echiquier.getPiecesIHM());
+    }
 }

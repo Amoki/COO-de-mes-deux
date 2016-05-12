@@ -14,12 +14,7 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.*;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import controler.ChessGameControlers;
 import model.*;
@@ -95,22 +90,44 @@ public class ChessGameGUI extends JFrame implements MouseListener, MouseMotionLi
 
     @ Override
     public void mousePressed (MouseEvent e) {
-        chessPiece = null;
-        Component c = chessBoard.findComponentAt (e.getX (), e.getY ());
 
-        if (c instanceof JPanel) {
-            return;
+        if(SwingUtilities.isRightMouseButton(e)) {
+            Object[] options = {"Undo",
+                    "Redon"};
+
+            int n = JOptionPane.showOptionDialog(this,
+                    "Quelle action voullez vous effectuer?",
+                    "",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE,
+                    null,
+                    options,
+                    options[0]);
+
+            if (n == 0) {
+                chessGameControlers.undo();
+            } else {
+                chessGameControlers.redon();
+            }
+        } else {
+            chessPiece = null;
+            Component c = chessBoard.findComponentAt (e.getX (), e.getY ());
+
+            if (c instanceof JPanel) {
+                return;
+            }
+
+            Point parentLocation = c.getParent ().getLocation ();
+            this.coordPieceSelected = this.mapCoord.get (c.getParent ());
+            xAdjustment = parentLocation.x - e.getX ();
+            yAdjustment = parentLocation.y - e.getY ();
+            chessPiece = (JLabel) c;
+            chessPiece.setLocation (e.getX () + xAdjustment, e.getY () + yAdjustment);
+            chessPiece.setSize (chessPiece.getWidth (), chessPiece.getHeight ());
+            layeredPane.add (chessPiece, JLayeredPane.DRAG_LAYER);
+            drawValidCoord(coordPieceSelected);
         }
 
-        Point parentLocation = c.getParent ().getLocation ();
-        this.coordPieceSelected = this.mapCoord.get (c.getParent ());
-        xAdjustment = parentLocation.x - e.getX ();
-        yAdjustment = parentLocation.y - e.getY ();
-        chessPiece = (JLabel) c;
-        chessPiece.setLocation (e.getX () + xAdjustment, e.getY () + yAdjustment);
-        chessPiece.setSize (chessPiece.getWidth (), chessPiece.getHeight ());
-        layeredPane.add (chessPiece, JLayeredPane.DRAG_LAYER);
-        drawValidCoord(coordPieceSelected);
 
     }
 

@@ -3,12 +3,13 @@ package controler;
 import model.Coord;
 import model.PiecesIHM;
 import tools.Observer;
+import tools.UndoRedo;
 import vue.ChessGameCmdLine;
 import vue.ChessGameGUI;
 
 import java.util.ArrayList;
 
-public interface ChessGameControlers {
+public interface ChessGameControlers extends UndoRedo{
 
 	
 	/**

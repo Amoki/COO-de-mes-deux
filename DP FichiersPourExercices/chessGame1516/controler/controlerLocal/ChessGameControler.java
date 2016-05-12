@@ -5,10 +5,11 @@ import model.ChessGame;
 import model.Coord;
 import model.PiecesIHM;
 import tools.Observer;
+import tools.UndoRedo;
 
 import java.util.ArrayList;
 
-public class ChessGameControler implements ChessGameControlers  {
+public class ChessGameControler implements ChessGameControlers, UndoRedo {
 
     private ChessGame chessGame;
 
@@ -46,5 +47,12 @@ public class ChessGameControler implements ChessGameControlers  {
 
     public String toString() {
         return this.chessGame.toString();
+    }
+
+    public void undo() {
+        this.chessGame.undo();
+    }
+    public void redon() {
+        this.chessGame.redon();
     }
 }

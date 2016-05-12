@@ -374,6 +374,20 @@ public class Echiquier implements BoardGames {
 		return false;
 	}
 
+	public void undo() {
+		this.jeuCourant.undo();
+		Jeu tmp = this.jeuCourant;
+		this.jeuCourant = this.jeuOppose;
+		this.jeuOppose = tmp;
+	}
+
+	public void redon() {
+		this.jeuCourant.redon();
+		Jeu tmp = this.jeuCourant;
+		this.jeuCourant = this.jeuOppose;
+		this.jeuOppose = tmp;
+	}
+
 
 	public static void main(String[] args) {
 		Echiquier e = new Echiquier();

@@ -17,7 +17,7 @@ public class PionNoirBehavior extends PionBehavior{
     public boolean isMoveDiagonalOk(int xInitial, int yInitial, int xFinal, int yFinal) {
         Boolean ret = false;
         if ((yFinal == yInitial+1 && xFinal == xInitial+1)
-                || (yFinal == yInitial+1 && xFinal == xFinal-1)) {
+                || (yFinal == yInitial+1 && xFinal == xInitial-1)) {
             ret = true;
         }
         return ret;
